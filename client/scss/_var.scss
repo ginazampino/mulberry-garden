@@ -1,0 +1,38 @@
+// Font Families:
+$ffamily-heading: 'Lora', 'Times New Roman', Times, serif;
+$ffamily-body: 'Roboto', Arial, Helvetica, sans-serif;
+$ffamily-script: 'Homemade Apple', Arial, Helvetica, sans-serif;
+
+// Letter-spacing:
+$lspacing-df: .025em;
+
+// Monochrome Colors:
+$color-white: #fff;
+$color-grey: #5f5f5f;
+$color-black: #222;
+$color-grey-lt: #fafafa;
+$color-grey-md: #afafaf;
+$color-grey-dk: #434343;
+
+// Accent Colors:
+$color-accent: #58ac1d;
+
+// Mixins:
+@mixin flex($align-items, $justify-content, $flex-direction) {
+    align-items: $align-items;
+    display: flex;
+    justify-content: $justify-content;
+    flex-direction: $flex-direction;
+}
+
+@mixin relative() {
+    position: relative;
+}
+
+@mixin absolute() {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}

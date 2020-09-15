@@ -1,0 +1,26 @@
+// Alignment:
+.align-center {
+    text-align: center;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+// Positioning:
+.center {
+    margin: 0 auto;
+}
+
+// Other:
+.accent {
+    color: $color-accent;
+}
+
+.hidden {
+    display: none;
+}
