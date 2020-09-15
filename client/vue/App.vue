@@ -20,6 +20,15 @@
                         Watch mulberries and their friends grow.
                     </p>
                 </div>
+
+                <nav>
+                    <select id="gallery-select" @change="onFilter($event.target.value)">
+                        <option>All Specimens</option>
+                        <optgroup label="Ficus Carica">
+                            <option>Frank</option>
+                        </optgroup>
+                    </select><i class="fal fa-caret-down accent"></i>
+                </nav>
             </header>
 
             <!-- Content: -->
@@ -72,9 +81,9 @@
         },
         
         mounted() {
-            axios.get(api).then(response => {
+            axios.get(api).then(response => { // Get all the posts.
                 this.postItems = response.data.sort(function(a, b) {
-                    return b.id - a.id;
+                    return b.id - a.id; // Sort posts by ID in descending order.
                 });
             })
         },
@@ -82,6 +91,25 @@
         methods: {
             onChangePage(pageOfItems) {
                 this.pageOfItems = pageOfItems;
+            },
+
+            onFilter(value) { // When the dropdown value changes, run this method.
+                if (value.includes('All')) { // Check if the dropdown value includes the word "All".
+                    axios.get(api).then(response => { // Get all the posts.
+                        this.postItems = response.data.sort(function(a, b) { // Change the value of postItems.
+                            return b.id - a.id; // Sort posts by ID in descending order.
+                        });
+                    });
+                } else {
+                    axios.get(api).then(response => { // Get all the posts.
+                        let posts = response.data; // Temporarily store the posts.
+                        let filteredPosts = posts.filter(post => post.plant.name.includes(value)); // Filter posts by name against the dropdown value.
+                        let sortedPosts = filteredPosts.sort(function(a, b) {
+                            return b.id - a.id; // Sort posts by ID in descending order.
+                        });
+                        this.postItems = sortedPosts; // Change the value of postItems.
+                    })
+                }
             }
         }
     };
