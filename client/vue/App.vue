@@ -15,10 +15,10 @@
                         v-bind:to="'/'"
                         @click.native="onClear()"
                     >
-                        <i class="fal fa-seedling accent"></i>Mulberry Garden
+                        <i class="fal fa-seedling accent"></i><span>Mulberry</span> <span>Garden</span>
                     </router-link>
                     <p class="subheading">
-                        Watch mulberries and their friends grow.
+                        <span>Watch mulberries</span> <span>and their friends grow.</span>
                     </p>
                 </div>
 
@@ -56,7 +56,7 @@
 
             <!-- Footer: -->
             <footer>
-                Copyright <i class="far fa-copyright accent" alt="©" title="©"></i> <a href="https://www.ginazampino.com">Gina Zampino</a>. All rights reserved.
+                <span>Copyright <i class="far fa-copyright accent" alt="©" title="©"></i> <a href="https://www.ginazampino.com">Gina Zampino</a>.</span> <span>All rights reserved.</span>
             </footer>
         </div>
     </div>
