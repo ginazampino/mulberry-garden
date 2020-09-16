@@ -26,7 +26,7 @@
                     <select id="gallery-select" @change="onFilter($event.target.value)">
                         <option>All Specimens</option>
                         <optgroup label="Ficus Carica">
-                            <option>One</option>
+                            <option>Frank</option>
                         </optgroup>
                     </select><i class="fal fa-caret-down accent"></i>
                 </nav>
