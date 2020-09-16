@@ -25,7 +25,7 @@
                     <select id="gallery-select" @change="onFilter($event.target.value)">
                         <option>All Specimens</option>
                         <optgroup label="Ficus Carica">
-                            <option>Frank</option>
+                            <option>One</option>
                         </optgroup>
                     </select><i class="fal fa-caret-down accent"></i>
                 </nav>
@@ -38,7 +38,7 @@
                     class="post" 
                     v-for="item in pageOfItems" 
                     v-bind:key="item.id"
-                    v-bind:style="{ 'background-image': 'url(http://167.172.26.128' + item.image.formats.thumbnail.url + ')' }"
+                    v-bind:style="{ 'background-image': 'url(https://strapi.mulberry.garden' + item.image.formats.thumbnail.url + ')' }"
                     v-bind:to="'/' + (item.plant.name).toLowerCase() + '/' + item.image.id"
                 >
                     <figcaption>
@@ -65,7 +65,7 @@
     import lightbox from './lightbox.vue';
 
     const axios = require('axios');
-    const api = 'http://167.172.26.128/posts';
+    const api = 'https://strapi.mulberry.garden/posts';
     const postItems = [];
 
     export default {

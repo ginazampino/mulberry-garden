@@ -19,9 +19,9 @@
         },
         
         mounted() {
-            axios.get('http://167.172.26.128/upload/files/' + this.$route.params.id).then(response => {
+            axios.get('https://strapi.mulberry.garden/upload/files/' + this.$route.params.id).then(response => {
                 var image = response.data;
-                this.imageURL = 'http://167.172.26.128' + image.url;
+                this.imageURL = 'https://strapi.mulberry.garden' + image.url;
             });
         }
     }
