@@ -13,6 +13,7 @@
                     <router-link 
                         tag="h1" 
                         v-bind:to="'/'"
+                        @click.native="onClear()"
                     >
                         <i class="fal fa-seedling accent"></i>Mulberry Garden
                     </router-link>
@@ -82,7 +83,7 @@
         
         mounted() {
             axios.get(api).then(response => { // Get all the posts.
-                this.postItems = response.data.sort(function(a, b) {
+                this.postItems = response.data.sort(function(a, b) { // Change the value of postItems.
                     return b.id - a.id; // Sort posts by ID in descending order.
                 });
             })
@@ -104,12 +105,21 @@
                     axios.get(api).then(response => { // Get all the posts.
                         let posts = response.data; // Temporarily store the posts.
                         let filteredPosts = posts.filter(post => post.plant.name.includes(value)); // Filter posts by name against the dropdown value.
-                        let sortedPosts = filteredPosts.sort(function(a, b) {
+                        let sortedPosts = filteredPosts.sort(function(a, b) { // Set the value of sortedPosts.
                             return b.id - a.id; // Sort posts by ID in descending order.
                         });
                         this.postItems = sortedPosts; // Change the value of postItems.
                     })
                 }
+            },
+
+            onClear() { // When the link is clicked, run this method.
+                axios.get(api).then(response => { // Get all the posts.
+                    this.postItems = response.data.sort(function(a, b) { // Change the value of postItems.
+                        return b.id - a.id; // Sort posts by ID in descending order.
+                    });
+                });
+                document.getElementById("gallery-select").value = "All Specimens"; // Change the value of the HTML select element.
             }
         }
     };
