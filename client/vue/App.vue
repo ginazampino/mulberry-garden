@@ -25,8 +25,17 @@
                 <nav>
                     <select id="gallery-select" @change="onFilter($event.target.value)">
                         <option>All Specimens</option>
+                        <optgroup label="Seedlings">
+                            <option>Black Mulberries</option>
+                            <option>Dragon's Blood</option>
+                            <option>Red Mulberries</option>
+                            <option>White Mulberries</option>
+                        </optgroup>
                         <optgroup label="Ficus Carica">
                             <option>Frank</option>
+                        </optgroup>
+                        <optgroup label="Morus Nigra">
+                            <option>Alfred</option>
                         </optgroup>
                     </select><i class="fal fa-caret-down accent"></i>
                 </nav>
